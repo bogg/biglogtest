@@ -1,0 +1,27 @@
+apiVersion: tekton.dev/v1beta1
+kind: TriggerTemplate
+metadata:
+  name: trigger-template
+spec:
+  params:
+    - name: log-line-bytes
+      description: Number of bytes in the log line
+      default: "1000"
+      type: string
+    - name: num-log-lines
+      description: Number of lines to print to the log
+      default: "10"
+      type: string
+  resourcetemplates:
+    - apiVersion: tekton.dev/v1beta1
+      kind: PipelineRun
+      metadata:
+        name: pipelinerun-$(uid)
+      spec:
+        pipelineRef:
+          name: pipeline
+        params:
+          - name: log-line-bytes
+            value: $(params.log-line-bytes)
+          - name: num-log-lines
+            value: $(params.num-log-lines)

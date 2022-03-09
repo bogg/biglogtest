@@ -1,0 +1,23 @@
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: pipeline
+spec:
+  params:
+    - name: log-line-bytes
+      description: Number of bytes in the log line
+      default: "1000"
+      type: string
+    - name: num-log-lines
+      description: Number of lines to print to the log
+      default: "10"
+      type: string
+  tasks:
+    - name: pipeline-task
+      taskRef:
+        name: echo-task
+      params:
+        - name: log-line-bytes
+          value: $(params.log-line-bytes)
+        - name: num-log-lines
+          value: $(params.num-log-lines)

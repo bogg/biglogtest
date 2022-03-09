@@ -1,0 +1,10 @@
+apiVersion: tekton.dev/v1beta1
+kind: TriggerBinding
+metadata:
+  name: trigger-binding
+spec:
+  params:
+    - name: log-line-bytes
+      value: $(params.log-line-bytes)
+    - name: num-log-lines
+      value: $(params.num-log-lines)
