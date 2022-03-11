@@ -31,4 +31,5 @@ spec:
         do
           cat file.txt
           echo 'And another line for you...\n'
+          sleep 10s
         done
