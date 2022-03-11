@@ -30,4 +30,5 @@ spec:
         for i in $(seq 0 ${LOG_LINES})
         do
           cat file.txt
+          echo 'And another line for you...\n'
         done
