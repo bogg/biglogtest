@@ -34,5 +34,5 @@ spec:
           cat file.txt
           echo -e ' And another line for you...'
           COUNTER=$((COUNTER+1))
-          sleep 1s
+          sleep 5s
         done
