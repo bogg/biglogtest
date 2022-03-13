@@ -30,7 +30,7 @@ spec:
         COUNTER=0
         for i in $(seq 0 ${LOG_LINES})
         do
-          echo $(COUNTER)
+          echo $COUNTER
           cat file.txt
           echo -e ' And another line for you...'
           COUNTER=$((COUNTER+1))
