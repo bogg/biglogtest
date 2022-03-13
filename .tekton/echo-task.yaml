@@ -30,9 +30,9 @@ spec:
         count=0
         for i in $(seq 0 ${LOG_LINES})
         do
-          echo '$count'
+          echo $count
           cat file.txt
-          echo -e 'And another line for you...'
-          count++
+          echo -e ' And another line for you...'
+          count=count+1
           sleep 1s
         done
