@@ -27,12 +27,12 @@ spec:
         < /dev/urandom tr -dc "[:alnum:]" | head -c${LOG_LINE_BYTES} > file.txt
 
         # cat the file to stdout LOG_LINES times
-        count=0
+        COUNTER=0
         for i in $(seq 0 ${LOG_LINES})
         do
-          echo $count
+          echo $(COUNTER)
           cat file.txt
           echo -e ' And another line for you...'
-          count=count+1
+          COUNTER=$((COUNTER+1))
           sleep 1s
         done
